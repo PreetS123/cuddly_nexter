@@ -24,8 +24,14 @@
 
 .heading-3 {
     @extend %heading;
-    font-size: $color-primary;
+    font-size: 2rem;
     text-transform: uppercase;
+    &--light{
+        color: $color-primary;
+    }
+    &--dark{
+        color: $color-primary-dark;
+    }
 
 }
 
