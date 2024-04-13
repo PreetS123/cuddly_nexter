@@ -11,15 +11,22 @@
   padding: 4rem 8rem;
 
   display: grid;
-  grid-template-rows: 1fr min-content 6rem 1fr;
-  grid-template-columns: max-content;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  grid-template-columns: minmax(min-content, max-content);
   grid-row-gap: 1.5rem;
   justify-content: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-column: 1 / -1;
+  }
+  @media only screen and (max-width: $bp-small) {
+    padding: 3rem;
+  }
   &__logo {
     height: 3rem;
     justify-self: center;
   }
-  &__btn{
+  &__btn {
     align-self: flex-start;
     justify-self: start;
   }
@@ -31,20 +38,22 @@
     color: $color-grey-light-2;
     align-items: center;
     &::before,
-    &::after{
-        content: "";
-        height: 1px;
-        display: block;
-        background-color: currentColor;
+    &::after {
+      content: "";
+      height: 1px;
+      display: block;
+      background-color: currentColor;
     }
   }
   &__screen-logos {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3vw;
+    align-items: center;
     justify-items: center;
     img {
-      height: 2.5rem;
+      max-height: 2.5rem;
+      max-width: 100%;
       filter: brightness(70%);
     }
   }
